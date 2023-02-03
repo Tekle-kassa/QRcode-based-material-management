@@ -1,0 +1,35 @@
+<%layout('layouts/boilerplate') %> 
+    <%-include('../partials/flash') %> 
+   <div class="row">
+    <div class="col-6 offset-3">
+        <div class="card mb-3">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+              <h5 class="card-title"><%=employee.firstname %> </h5>
+            </div>
+            <p>belongings</p>
+            <ul class="list-group list-group-flush">
+                <%for(let belonging of employee.belongings){ %>
+                    <li class="list-group-item text-muted"><a href="/items/<%=belonging._id%>"><%=belonging.name %> 
+                    </a></li>
+                    <% } %>  
+              <!-- <li class="list-group-item">An item</li>
+              <li class="list-group-item">A second item</li>
+              <li class="list-group-item">A third item</li> -->
+            </ul>
+            <div class="card-body">
+              <a class="card-link btn btn-info" href="/employees/<%=employee._id%>/edit">edit</a>
+              <form class="d-inline" action="/employees/<%=employee._id%>?_method=DELETE"method="POST">
+                <button class="btn btn-danger">remove employee</button>
+              </form>
+              <a class="card-link btn btn-success" href="/employees/<%=employee._id %>/items/new">add items</a>
+            </div>
+          </div>
+          <div class="card-footer text-muted">
+            2 days ago
+            <a href="/employees">all employees</a>
+          </div>
+    </div>
+   </div>
+
+

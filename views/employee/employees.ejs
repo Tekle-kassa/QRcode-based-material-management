@@ -1,0 +1,29 @@
+   <link rel="stylesheet" href="/table.css">
+    <%layout('layouts/boilerplate') %> 
+    
+    <%-include('../partials/flash') %> 
+    <table class="content-table">
+        <tr>
+            <th>ID</th>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>email</th>
+            <th>phone number</th>
+            <th>details</th>
+           
+
+        </tr>
+        <% for(let employee of employees){ %>
+            <tr>
+                <td><%=employees.indexOf(employee)+1 %> </td>
+                <td><%=employee.firstname %> </td>
+                <td><%=employee.lastname %> </td>
+                <td><%=employee.email %> </td>
+                <td><%=employee.phone %> </td>
+                <td><a class="btn btn-primary" href="/employees/<%=employee._id %>">view <%=employee.firstname %></a></td>
+            </tr> 
+            <% } %> 
+
+    </table>
+   
+    <a href="/employees/new">add new employee</a>

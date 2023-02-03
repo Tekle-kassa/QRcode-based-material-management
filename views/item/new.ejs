@@ -1,0 +1,26 @@
+<%layout('layouts/boilerplate') %> 
+    <div class="row">
+        <h1 class="text-center"><%=employee.firstname %> </h1>
+        <h2 class="text-center">Add The Items Here</h2>
+        <div class="col-6 offset-3">
+            <!-- <h2>Register a new employee here</h2> -->
+            <form action="/employees/<%=employee._id%>/items"method="POST">
+              <div class="mb-3">
+                <label class="form-label" for="name">Item name:</label>
+                <input class="form-control" type="text" name="name" id="name"required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label"for="model">Model:</label>
+                <input  class="form-control" type="text" name="model" id="model"required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="serial">Serial number:</label>
+                <input  class="form-control" type="text" name="serialNo" id="serial"required>
+              </div>
+              <div class="mb-3">
+                <button class="btn btn-success">submit</button>
+               </div>
+          </form>
+          <a href="/employees/<%=employee._id%>">back to employee</a> 
+        </div>
+    </div>    

@@ -1,0 +1,30 @@
+<%layout('layouts/boilerplate') %> 
+<%-include('../partials/flash') %> 
+    <div class="row">
+        <h1 class="text-center">Edit Employee's Info</h1>
+        <div class="col-6 offset-3">
+            <!-- <h2>Register a new employee here</h2> -->
+            <form action="/employees/<%=employee._id %>?_method=PUT "method="POST">
+                <div class="mb-3">
+                <label class="form-label" for="first">first name:</label>
+                <input class="form-control" type="text" name="firstname" id="first" value="<%=employee.firstname%> " required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label"for="last">last name:</label>
+                <input  class="form-control" type="text" name="lastname" id="last" value="<%=employee.lastname %>" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="email">email:</label>
+                <input  class="form-control" type="email" name="email" id="email" value="<%=employee.email %> " required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="phone">phone number:</label>
+                <input  class="form-control" type="text" name="phone" id="phone" value="<%=employee.phone %> " required>
+              </div>
+              <div class="mb-3">
+                <button class="btn btn-info">submit</button>
+               </div>
+          </form>
+          <a href="/employees/<%=employee._id %> ">back to employee</a>
+        </div>
+    </div>  

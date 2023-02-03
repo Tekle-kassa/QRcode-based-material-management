@@ -1,0 +1,26 @@
+<%layout('layouts/boilerplate') %> 
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card mb-3">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                  <h5 class="card-title">name:<%=item.name %> </h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                     
+                  <li class="list-group-item">model:<%=item.model %> </li>
+                  <li class="list-group-item">serial number:<%=item.serialNo %> </li>
+                  <!-- <li class="list-group-item">A third item</li> -->
+                </ul>
+                <div class="card-body">
+                    <h3>owner:<a href="/employees/<%=item.owner._id %> "><%=item.owner.firstname %></a> </h3>
+                  
+                </div>
+              </div>
+              <div class="card-footer text-muted">
+                2 days ago
+                <a href="/employees">all employees</a>
+              </div>
+        </div>
+       </div>
+    

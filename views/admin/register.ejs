@@ -1,0 +1,27 @@
+<%layout('layouts/boilerplate') %> 
+<%-include('../partials/flash') %>
+    <div class="row">
+        <h1 class="text-center">Register Here</h1>
+        <div class="col-6 offset-3">
+            <!-- <h2>Register a new employee here</h2> -->
+            <form action="/register"method="POST">
+                <div class="mb-3">
+                <label class="form-label" for="username">Username:</label>
+                <input class="form-control" type="text" name="username" id="username"required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label"for="last">role:</label>
+                <select name="role" id="role">
+                    <option value="admin">admin</option>
+                    <option value="operator">operator</option>
+                </select>
+            </div>
+             
+              <div class="mb-3">
+                <button class="btn btn-success">Register</button>
+               </div>
+          </form>
+          <a href="/employees">all employees</a>
+        </div>
+    </div>    
+    

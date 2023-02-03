@@ -1,0 +1,11 @@
+<%layout('layouts/boilerplate') %> 
+    <%if(!currentUser){%> 
+        <a href="/admin/signup">Signup</a>
+        <a href="/admin/login">Login</a>
+        <% }else{ %> 
+    <a href="/register">register authorities</a>
+    
+    <a href="/admin/logout">Logout</a>
+    <a href="/employees">all employees</a>
+    <a href="/employees/new">add new employee</a>
+    <% } %> 

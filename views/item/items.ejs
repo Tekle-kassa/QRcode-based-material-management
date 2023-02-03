@@ -1,0 +1,7 @@
+<%layout('layouts/boilerplate') %> 
+    <h1>all items</h1>
+    <ul>
+        <% for(let item of items){ %>
+            <li><a href="/items/<%=item._id%> "><%=item.name%></a></li>
+            <% } %>  
+    </ul>

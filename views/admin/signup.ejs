@@ -1,0 +1,35 @@
+<%layout('layouts/boilerplate') %> 
+    <%-include('../partials/flash') %> 
+    <div class="row">
+        <h1 class="text-center">SIGNUP HERE</h1>
+        <div class="col-6 offset-3">
+            <!-- <h2>Register a new employee here</h2> -->
+            <form action="/admin/signup"method="POST">
+                <div class="mb-3">
+                <label class="form-label" for="firstname">first name:</label>
+                <input class="form-control" type="text" name="firstname" id="firstname"required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label"for="lastname">last name:</label>
+                <input  class="form-control" type="text" name="lastname" id="lastname"required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label"for="last">username:</label>
+                <input  class="form-control" type="text" name="username" id="username"required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="email">Email:</label>
+                <input  class="form-control" type="email" name="email" id="email"required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="password">password:</label>
+                <input  class="form-control" type="password" name="password" id="password"required>
+              </div>
+              <div class="mb-3">
+                <button class="btn btn-success">Signup</button>
+               </div>
+          </form>
+          <a href="/employees">all employees</a>
+        </div>
+    </div>    
+    

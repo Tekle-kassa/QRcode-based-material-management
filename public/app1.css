@@ -1,0 +1,50 @@
+body{
+    background-color: rgba(127, 255, 212,.7);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 100px;
+}
+.sign__up{
+  
+    margin: auto;
+    width: 300px;
+    height:50vh ;
+    background-color: white ;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, .4);
+}
+h1{
+    color: aquamarine;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-size: 20px;
+    font-weight: bold;
+}
+form{
+    margin: 10px 20px;
+    height: 150px;
+}
+.form label{
+    font-size: 12px;
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+
+}
+.form input{
+    display: block;
+    width: 100%;
+    border: 1px solid gray ;
+    border-radius: 20px;
+}
+button{
+    width: 90%;
+    margin-top: 10px;
+    margin-left: auto;
+    letter-spacing: 2px;
+    padding: 5px 70px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: rgb(112, 214, 180);
+    transition: .3sec;
+}
