@@ -3,6 +3,7 @@ const Item=require('../models/belonging')
 const ExpressError = require('../utils/ExpressError')
 const Joi=require('joi')
 const {validateEmployee}=require('../middleware')
+const QRCode=require('qrcode')
 
 
 
@@ -69,6 +70,18 @@ module.exports.renderEditForm=async(req,res)=>{
     res.render('item/new',{emp_id,employee})
  
  }
+
+ const generateQR=async(text)=>{
+   try{
+      //  console.log(await QRCode.toDataURL(text))
+      const data=await QRCode.toDataURL(text)
+      return data
+   }catch(err){
+       console.log(err)
+   }
+
+}
+let qr
  module.exports.createItem=async(req,res)=>{
     const {emp_id}=req.params
     const {name,model,serialNo}=req.body
@@ -78,10 +91,17 @@ module.exports.renderEditForm=async(req,res)=>{
     item.owner=employee
     await item.save()
     await employee.save()
+     qr=await generateQR(`http://localhost:3000/items/${item._id}`)
+   //  console.log(data)
+   // console.log(item._id)
     req.flash('success','successfully added an item')
     res.redirect(`/employees/${employee._id}`)
     // res.send(employee)
  
     // res.send(req.body)
  
+ }
+ module.exports.QrCode=async(req,res)=>{
+   // console.log(qr)
+   res.render('employee/QRcode',{qr})
  }
