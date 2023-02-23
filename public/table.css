@@ -1,3 +1,8 @@
+
+.table{
+    display: flex;
+    justify-content: center;
+}
 .content-table{
     border-collapse: collapse;
     margin: 25px 0;
@@ -9,7 +14,7 @@
    
 }
 .content-table tr th {
-    background-color: #009879;
+    background-color: rgba(14, 3, 3, 0.841);
     color:#fff;
     text-align: left;
     font-weight: bold;
@@ -27,7 +32,7 @@
 }
 
 .content-table tr:last-of-type{
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid rgba(14, 3, 3, 0.841);
 }
 .content-table tr.active-row {
     font-weight: bold;

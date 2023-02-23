@@ -12,21 +12,13 @@ const passport=require('passport')
 const LocalStrategy=require('passport-local')
 const fs=require('fs')
 const bodyParser=require('body-parser')
-const multer=require('multer')
 
 
 
-const Image=require('./models/image')
-const storage = multer.diskStorage({
-   destination: (req, file, cb) => {
-       cb(null, 'uploads')
-   },
-   filename: (req, file, cb) => {
-       cb(null, file.fieldname + '-' + Date.now())
-   }
-});
 
-const upload = multer({ storage: storage });
+
+
+
 
 const catchAsync=require('./utils/catchAsync')
 const ExpressError=require('./utils/ExpressError')
@@ -46,7 +38,7 @@ const {isAdminLoggedIn,isOperatorLoggedIn,isAdmin,isOperator}=require('./middlew
 
 const app=express()
 mongoose.set('strictQuery',false)
-mongoose.connect('mongodb://127.0.0.1:27017/pc2')
+mongoose.connect('mongodb://127.0.0.1:27017/MMS')
  .then(()=>{
     console.log("connected")
  }).catch((e)=>{
@@ -154,56 +146,15 @@ app.get('/signup',(req,res,next)=>{
    res.render('signup')
 })
 
-app.get('/image', async(req, res,next) => {
-   //  Image.find({}, (err, items) => {
-   //     if (err) {
-   //         console.log(err);
-   //         res.status(500).send('An error occurred', err);
-   //     }
-   //     else {
-   //         res.render('imagesPage', { items: items });
-   //     }
-   // });
-
-   
-
-   try{
-       const items=await Image.find({})
-  
-   res.render('imagesPage',{items})
-   }catch(e){
-      next(e)
-   }
-});
-
-
-// Step 8 - the POST handler for processing the uploaded file
-
-app.post('/image', upload.single('image'), (req, res, next) => {
-
-	var obj = {
-		name: req.body.name,
-		desc: req.body.desc,
-		img: {
-			data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
-			contentType: 'image/png'
-		}
-	}
-	Image.create(obj, (err, item) => {
-		if (err) {
-			console.log(err);
-		}
-		else {
-			// item.save();
-			res.redirect('/');
-		}
-	});
-});
 
 app.get('/logout',(req,res,next)=>{
    req.session.passport=null
    req.flash('success','Goodbye')
    res.redirect('/')
+})
+
+app.get('/readCode',(req,res,next)=>{
+    res.render('read')     
 })
 
 app.all('*',(req,res,next)=>{
