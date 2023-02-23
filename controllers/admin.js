@@ -39,7 +39,7 @@ module.exports.renderLoginForm=(req,res)=>{
 module.exports.adminLogin=(req,res)=>{
     const redirectUrl=req.session.returnTo || '/'
     delete req.session.returnTo
-    console.log(req.user.role)
+    // console.log(req.user.role)
     req.flash('success','welcome back')
     res.redirect(redirectUrl)
  }

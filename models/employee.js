@@ -1,4 +1,5 @@
 const mongoose=require('mongoose')
+const Item=require('./belonging')
 const Schema=mongoose.Schema
 
 const EmployeeSchema=new Schema({
@@ -30,6 +31,13 @@ const EmployeeSchema=new Schema({
             ref:'Item'
         }
     ]
+})
+
+EmployeeSchema.post('findOneAndDelete',async function(employee){
+    if(employee.belongings.length){
+        const res=await Item.deleteMany({_id:{$in:employee.belongings}})
+        // console.log(res)
+    }
 })
 
 const Employee=mongoose.model('Employee',EmployeeSchema)
